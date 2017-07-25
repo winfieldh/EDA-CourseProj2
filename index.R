@@ -15,3 +15,5 @@ plot(TotalEmissions$year,TotalEmissions$Emissions, type="l", col="red",xlab="Yea
 
 BaltData <- filter(pmdata,fips=="24510")
 BaltEmissions <- group_by(BaltData, year) %>% summarise(Emissions=sum(Emissions))
+plot(BaltEmissions$year,BaltEmissions$Emissions,type='l',xlab="Year", ylab="Emissions", main = "Total Emissions")
+
