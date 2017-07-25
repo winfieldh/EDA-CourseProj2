@@ -17,3 +17,6 @@ BaltData <- filter(pmdata,fips=="24510")
 BaltEmissions <- group_by(BaltData, year) %>% summarise(Emissions=sum(Emissions))
 plot(BaltEmissions$year,BaltEmissions$Emissions,type='l',xlab="Year", ylab="Emissions", main = "Total Emissions")
 
+#3 Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore City? Which have seen increases in emissions from 1999–2008? Use the ggplot2 plotting system to make a plot answer this question.
+
+ggplot(BaltData, aes(factor(year), Emissions, fill=type)) + geom_bar(stat="identity") + facet_grid(.~type,scales="free")
